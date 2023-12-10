@@ -32,6 +32,9 @@ class UpdateSaksi extends FormRequest
     public function rules()
     {
         return [
+            'paket_id' => [
+                'nullable'
+            ],
             'caleg_id' => [
                 'nullable'
             ],
@@ -65,12 +68,6 @@ class UpdateSaksi extends FormRequest
             ],
             'status' => [
                 'nullable', 'string'
-            ],
-            'paket_nama1' => [
-                'nullable', 'boolean'
-            ],
-            'paket_nama2' => [
-                'nullable', 'boolean'
             ]
         ];
     }

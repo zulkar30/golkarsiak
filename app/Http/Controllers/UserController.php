@@ -7,6 +7,7 @@ use App\Http\Requests\User\UpdateUser;
 use App\Models\Caleg;
 use App\Models\Desa;
 use App\Models\Kecamatan;
+use App\Models\Paket;
 use App\Models\Role;
 use App\Models\Tps;
 use App\Models\User;
@@ -42,8 +43,9 @@ class UserController extends Controller
         $desa = Desa::orderBy('id', 'asc')->get();
         $tps = Tps::orderBy('id', 'asc')->get();
         $caleg = Caleg::orderBy('id', 'asc')->get();
+        $paket = Paket::orderBy('id', 'asc')->get();
 
-        return view('pages.user.index', compact('user', 'roles', 'kecamatan', 'desa', 'tps', 'caleg'));
+        return view('pages.user.index', compact('user', 'roles', 'kecamatan', 'desa', 'tps', 'caleg', 'paket'));
     }
 
     /**
@@ -196,5 +198,11 @@ class UserController extends Controller
 
         alert()->success('Berhasil', 'Berhasil Menghapus Data User');
         return back();
+    }
+
+    public function showUser()
+    {
+        $user = Auth::user();
+        return view('profile.show', compact('user'));
     }
 }

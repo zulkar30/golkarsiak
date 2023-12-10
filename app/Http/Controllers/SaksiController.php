@@ -7,6 +7,7 @@ use App\Http\Requests\Saksi\UpdateSaksi;
 use App\Models\Caleg;
 use App\Models\Desa;
 use App\Models\Kecamatan;
+use App\Models\Paket;
 use App\Models\Saksi;
 use App\Models\Tps;
 use Illuminate\Http\Request;
@@ -40,7 +41,8 @@ class SaksiController extends Controller
         $desa = Desa::all();
         $tps = Tps::all();
         $caleg = Caleg::all();
-        return view('pages.saksi.index', compact('saksi', 'kecamatan', 'desa', 'tps', 'caleg'));
+        $paketData = Paket::all();
+        return view('pages.saksi.index', compact('saksi', 'kecamatan', 'desa', 'tps', 'caleg', 'paketData'));
     }
 
     /**
@@ -79,23 +81,13 @@ class SaksiController extends Controller
             $data['foto'] = "";
         }
 
-        // Set nilai default untuk paketnama1 dan paketnama2
-        $data['paket_nama1'] = 0;
-        $data['paket_nama2'] = 0;
-
-        // Check jika 'syamsuar' dipilih dan set nilai paket_nama1
-        if (in_array('syamsuar', $request->input('paket'))) {
-            $data['paket_nama1'] = 1;
-        }
-
-        // Check jika 'muhammad_andri' dipilih dan set nilai paket_nama2
-        if (in_array('muhammad_andri', $request->input('paket'))) {
-            $data['paket_nama2'] = 1;
-        }
-
         // dd($data);
         // Kirim data ke database
         $saksi = Saksi::create($data);
+
+        $saksi->paket()->sync($request->input('paket', []));
+
+        // dd($saksi);
 
         // Sweetalert
         alert()->success('Success Create Message', 'Successfully added new Saksi');

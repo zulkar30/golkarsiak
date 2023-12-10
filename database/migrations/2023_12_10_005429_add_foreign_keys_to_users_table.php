@@ -14,9 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('kecamatan_id', 'fk_users_to_kecamatan')
+            $table->unsignedBigInteger('kecamatan_id')->nullable();
+            $table->foreign('kecamatan_id', 'fk_users_to_kecamatan')
             ->references('id')->on('kecamatan')->onUpdate('CASCADE')->onDelete('CASCADE');
-            $table->foreignId('desa_id', 'fk_users_to_desa')
+            $table->unsignedBigInteger('desa_id')->nullable();
+            $table->foreign('desa_id', 'fk_users_to_desa')
             ->references('id')->on('desa')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->unsignedBigInteger('tps_id')->nullable();
             $table->foreign('tps_id', 'fk_users_to_tps')
@@ -24,6 +26,9 @@ return new class extends Migration
             $table->unsignedBigInteger('caleg_id')->nullable();
             $table->foreign('caleg_id', 'fk_users_to_caleg')
             ->references('id')->on('caleg')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->unsignedBigInteger('paket_id')->nullable();
+            $table->foreign('paket_id', 'fk_users_to_paket')
+            ->references('id')->on('paket')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -39,6 +44,7 @@ return new class extends Migration
             $table->dropForeign('fk_users_to_desa');
             $table->dropForeign('fk_users_to_tps');
             $table->dropForeign('fk_users_to_caleg');
+            $table->dropForeign('fk_users_to_paket');
         });
     }
 };

@@ -31,11 +31,17 @@ class StoreUser extends FormRequest
     public function rules()
     {
         return [
+            'paket_id' => [
+                'nullable'
+            ],
+            'caleg_id' => [
+                'nullable'
+            ],
             'kecamatan_id' => [
-                'required'
+                'nullable'
             ],
             'desa_id' => [
-                'required'
+                'nullable'
             ],
             'tps_id' => [
                 'nullable'

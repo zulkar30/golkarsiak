@@ -95,7 +95,7 @@
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
                                                                 <input type="text" id="email" name="email"
-                                                                    class="form-control" placeholder="Email valid"
+                                                                    class="form-control" placeholder="Email Valid"
                                                                     value="{{ old('email') }}" autocomplete="off"
                                                                     data-inputmask="'alias': 'email'" required>
 
@@ -135,13 +135,59 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group row {{ $errors->has('caleg_id') ? 'has-error' : '' }}"
+                                                            id="calegInput">
+                                                            <label class="col-md-3 label-control">Caleg <code
+                                                                    style="color:red;">required</code></label>
+                                                            <div class="col-md-9 mx-auto">
+                                                                <select name="caleg_id" id="caleg_id" class="form-control select2">
+                                                                    <option value="{{ '' }}" disabled selected>Pilih
+                                                                        Caleg
+                                                                    </option>
+                                                                    @foreach ($caleg as $key => $caleg_item)
+                                                                        <option value="{{ $caleg_item->id }}">
+                                                                            {{ $caleg_item->nama_caleg }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                </select>
+
+                                                                @if ($errors->has('caleg_id'))
+                                                                    <p style="font-style: bold; color: red;">
+                                                                        {{ $errors->first('caleg_id') }}</p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row {{ $errors->has('paket_id') ? 'has-error' : '' }}"
+                                                            id="paketInput">
+                                                            <label class="col-md-3 label-control">Paket <code
+                                                                    style="color:red;">required</code></label>
+                                                            <div class="col-md-9 mx-auto">
+                                                                <select name="paket_id" id="paket_id" class="form-control select2">
+                                                                    <option value="{{ '' }}" disabled selected>Pilih
+                                                                        Paket
+                                                                    </option>
+                                                                    @foreach ($paket as $key => $paket_item)
+                                                                        <option value="{{ $paket_item->id }}">
+                                                                            {{ $paket_item->nama_paket }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                </select>
+
+                                                                @if ($errors->has('paket_id'))
+                                                                    <p style="font-style: bold; color: red;">
+                                                                        {{ $errors->first('paket_id') }}</p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+
                                                         <div
-                                                            class="form-group row {{ $errors->has('kecamatan_id') ? 'has-error' : '' }}">
+                                                            class="form-group row {{ $errors->has('kecamatan_id') ? 'has-error' : '' }}" id="kecamatanInput">
                                                             <label class="col-md-3 label-control">Kecamatan <code
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
                                                                 <select name="kecamatan_id" id="kecamatan_id"
-                                                                    class="form-control select2" required>
+                                                                    class="form-control select2">
                                                                     <option value="{{ '' }}" disabled selected>Pilih
                                                                         Kecamatan
                                                                     </option>
@@ -160,12 +206,12 @@
                                                         </div>
 
                                                         <div
-                                                            class="form-group row {{ $errors->has('desa_id') ? 'has-error' : '' }}">
+                                                            class="form-group row {{ $errors->has('desa_id') ? 'has-error' : '' }}" id="desaInput">
                                                             <label class="col-md-3 label-control">Desa <code
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
-                                                                <select name="desa_id" id="desa_id" class="form-control select2"
-                                                                    required>
+                                                                <select name="desa_id" id="desa_id"
+                                                                    class="form-control select2">
                                                                     <option value="{{ '' }}" disabled selected>Pilih
                                                                         Desa
                                                                     </option>
@@ -179,6 +225,30 @@
                                                                 @if ($errors->has('desa_id'))
                                                                     <p style="font-style: bold; color: red;">
                                                                         {{ $errors->first('desa_id') }}</p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row {{ $errors->has('tps_id') ? 'has-error' : '' }}"
+                                                            id="tpsInput">
+                                                            <label class="col-md-3 label-control">TPS <code
+                                                                    style="color:red;">required</code></label>
+                                                            <div class="col-md-9 mx-auto">
+                                                                <select name="tps_id" id="tps_id"
+                                                                    class="form-control select2">
+                                                                    <option value="{{ '' }}" disabled selected>Pilih
+                                                                        TPS
+                                                                    </option>
+                                                                    @foreach ($tps as $key => $tps_item)
+                                                                        <option value="{{ $tps_item->id }}">
+                                                                            {{ $tps_item->nama_tps }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                </select>
+
+                                                                @if ($errors->has('tps_id'))
+                                                                    <p style="font-style: bold; color: red;">
+                                                                        {{ $errors->first('tps_id') }}</p>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -208,32 +278,6 @@
 
                                                             </div>
                                                         </div>
-
-
-                                                        <div
-                                                            class="form-group row {{ $errors->has('caleg_id') ? 'has-error' : '' }}">
-                                                            <label class="col-md-3 label-control">Caleg <code
-                                                                style="color:green;">optional</code></label>
-                                                            <div class="col-md-9 mx-auto">
-                                                                <select name="caleg_id" id="caleg_id" class="form-control select2"
-                                                                    required>
-                                                                    <option value="{{ '' }}" disabled selected>Pilih
-                                                                        Caleg
-                                                                    </option>
-                                                                    @foreach ($caleg as $key => $caleg_item)
-                                                                        <option value="{{ $caleg_item->id }}">
-                                                                            {{ $caleg_item->nama_caleg }}
-                                                                        </option>
-                                                                    @endforeach
-                                                                </select>
-
-                                                                @if ($errors->has('caleg_id'))
-                                                                    <p style="font-style: bold; color: red;">
-                                                                        {{ $errors->first('caleg_id') }}</p>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-
 
                                                     </div>
 
@@ -277,7 +321,7 @@
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
                                                                 <input type="text" id="email" name="email"
-                                                                    class="form-control" placeholder="Email valid"
+                                                                    class="form-control" placeholder="Email Valid"
                                                                     value="{{ old('email') }}" autocomplete="off"
                                                                     data-inputmask="'alias': 'email'" required>
 
@@ -302,6 +346,30 @@
                                                                 @if ($errors->has('role'))
                                                                     <p style="font-style: bold; color: red;">
                                                                         {{ $errors->first('role') }}</p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+
+                                                        <div
+                                                            class="form-group row {{ $errors->has('caleg_id') ? 'has-error' : '' }}">
+                                                            <label class="col-md-3 label-control">Caleg <code
+                                                                    style="color:red;">required</code></label>
+                                                            <input type="hidden" name="caleg_id"
+                                                                value="{{ Auth::user()->caleg_id }}">
+                                                            <div class="col-md-9 mx-auto">
+                                                                <select name="caleg_id" id="caleg_id"
+                                                                    class="form-control select2" disabled>
+                                                                    <option value="{{ '' }}" disabled selected>Pilih
+                                                                        Caleg
+                                                                    </option>
+                                                                    <option value="{{ Auth::user()->caleg_id }}" selected>
+                                                                        {{ Auth::user()->caleg->nama_caleg }}
+                                                                    </option>
+                                                                </select>
+
+                                                                @if ($errors->has('caleg_id'))
+                                                                    <p style="font-style: bold; color: red;">
+                                                                        {{ $errors->first('caleg_id') }}</p>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -421,7 +489,7 @@
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
                                                                 <input type="text" id="email" name="email"
-                                                                    class="form-control" placeholder="Email valid"
+                                                                    class="form-control" placeholder="Email Valid"
                                                                     value="{{ old('email') }}" autocomplete="off"
                                                                     data-inputmask="'alias': 'email'" required>
 
@@ -446,6 +514,30 @@
                                                                 @if ($errors->has('role'))
                                                                     <p style="font-style: bold; color: red;">
                                                                         {{ $errors->first('role') }}</p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+
+                                                        <div
+                                                            class="form-group row {{ $errors->has('caleg_id') ? 'has-error' : '' }}">
+                                                            <label class="col-md-3 label-control">Caleg <code
+                                                                    style="color:red;">required</code></label>
+                                                            <input type="hidden" name="caleg_id"
+                                                                value="{{ Auth::user()->caleg_id }}">
+                                                            <div class="col-md-9 mx-auto">
+                                                                <select name="caleg_id" id="caleg_id"
+                                                                    class="form-control select2" disabled>
+                                                                    <option value="{{ '' }}" disabled selected>Pilih
+                                                                        Caleg
+                                                                    </option>
+                                                                    <option value="{{ Auth::user()->caleg_id }}" selected>
+                                                                        {{ Auth::user()->caleg->nama_caleg }}
+                                                                    </option>
+                                                                </select>
+
+                                                                @if ($errors->has('caleg_id'))
+                                                                    <p style="font-style: bold; color: red;">
+                                                                        {{ $errors->first('caleg_id') }}</p>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -595,8 +687,6 @@
                                                             <th>Nama</th>
                                                             <th>Email</th>
                                                             <th>Peran</th>
-                                                            <th>Kecamatan</th>
-                                                            <th>Desa</th>
                                                             <th>Foto</th>
                                                             <th style="text-align:center; width:150px;">Aksi</th>
                                                         </tr>
@@ -614,8 +704,6 @@
                                                                             class="badge bg-yellow text-dark mr-1 mb-1">{{ $item->name }}</span>
                                                                     @endforeach
                                                                 </td>
-                                                                <td>{{ $user_item->kecamatan->nama_kecamatan ?? '' }}</td>
-                                                                <td>{{ $user_item->desa->nama_desa ?? '' }}</td>
                                                                 <td><a data-fancybox="gallery"
                                                                         data-src="{{ request()->getSchemeAndHttpHost() . '/storage' . '/' . $user_item->foto }}"
                                                                         class="blue accent-4">Lihat</a></td>
@@ -966,6 +1054,20 @@
                     }
                 });
             });
+        });
+
+        $('#calegInput, #tpsInput, #paketInput').hide();
+        $('#role').on('change', function() {
+            var selectedRoles = $(this).val();
+            $('#calegInput, #tpsInput').hide();
+            if (selectedRoles && (selectedRoles.includes('2') || selectedRoles.includes('5'))) {
+                $('#calegInput').show();
+            } else if (selectedRoles && selectedRoles.includes('4')) {
+                $('#tpsInput').show();
+            } else if (selectedRoles && selectedRoles.includes('6')) {
+                $('#paketInput').show();
+                $('#kecamatanInput, #desaInput').hide();
+            }
         });
     </script>
 

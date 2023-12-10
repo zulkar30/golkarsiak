@@ -28,6 +28,7 @@ class User extends Authenticatable
         'desa_id',
         'tps_id',
         'caleg_id',
+        'paket_id',
         'name',
         'email',
         'password',
@@ -99,5 +100,10 @@ class User extends Authenticatable
     public function caleg()
     {
         return $this->belongsTo('App\Models\Caleg', 'caleg_id', 'id');
+    }
+
+    public function paket()
+    {
+        return $this->belongsTo('App\Models\Paket', 'paket_id', 'id');
     }
 }

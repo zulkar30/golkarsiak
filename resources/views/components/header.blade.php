@@ -34,10 +34,10 @@
                                 class="mr-1 user-name text-bold-700">{{ Auth::user()->name }}</span>
                             <span class="avatar avatar-online">
                                 <img class="h-100 w-100"
-                                    src="{{ Auth::user()->photo ? url(Storage::url(Auth::user()->photo)) : asset('/assets/app-assets/images/portrait/small/avatar-s-19.png') }}"
+                                    src="{{ Auth::user()->foto ? url(Storage::url(Auth::user()->foto)) : asset('/assets/app-assets/images/portrait/small/avatar-s-19.png') }}"
                                     alt="avatar"><i></i></span></a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            {{-- <a class="dropdown-item" href="{{ route('index') }}"><i class="ft-home"></i> Beranda</a> --}}
+                            <a class="dropdown-item" href="{{ route('user.profile') }}"><i class="ft-user"></i> Profile</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

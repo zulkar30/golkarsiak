@@ -62,4 +62,15 @@ class Saksi extends Model
     {
         return $this->belongsTo('App\Models\Caleg', 'caleg_id', 'id');
     }
+
+    public function paket()
+    {
+        return $this->belongsToMany('App\Models\Paket');
+    }
+
+    // Relasi one to many
+    public function paket_saksi()
+    {
+        return $this->hasMany('App\Models\PaketSaksi', 'saksi_id');
+    }
 }

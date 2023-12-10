@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('saksi', function (Blueprint $table) {
-            $table->boolean('paket_nama1')->default(false);
-            $table->boolean('paket_nama2')->default(false);
+        Schema::create('paket', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_paket');
+            $table->timestamps();
         });
     }
 
@@ -26,9 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('saksi', function (Blueprint $table) {
-            $table->dropColumn('paket_nama1');
-            $table->dropColumn('paket_nama2');
-        });
+        Schema::dropIfExists('paket');
     }
 };

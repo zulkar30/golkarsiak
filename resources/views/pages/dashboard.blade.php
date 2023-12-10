@@ -41,13 +41,13 @@
                 <div class="row">
                     <div class="col">
                         <div class="row justify-content-center">
-                            <div class="col-sm-2">
+                            <div class="col-sm-2 text-center">
                                 <img src="{{ asset('assets/images/logo-siak1.png') }}" class="img-thumbnail img-fluid"
-                                    style="height: 100px">
+                                    style="height: 100px;">
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-2 text-center">
                                 <img src="{{ asset('assets/images/logo-golkar1.png') }}" class="img-thumbnail img-fluid"
-                                    style="height: 100px">
+                                    style="height: 100px;">
                             </div>
                         </div>
                     </div>
@@ -500,47 +500,57 @@
             </div>
 
             <div class="tab-pane fade show" id="fullsaksi" role="tabpanel" aria-labelledby="home-tab">
-                <div class="card shadow mb-4">
-                    <a href="#Full" class="d-block card-header" style="background-color: #F4CE14"
-                        data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-white">Full Data Saksi Drs.H. Syamsuar, M.Si (Caleg DPR-RI
-                            Dapil Riau 1)
-                        </h6>
-                    </a>
-                    <div class="collapse show" id="Full">
-                        <div class="card-body">
-                            <h4 class="small font-weight-bold ">Full Data Saksi<span class="float-right">
-                                    {{ $saksiPaket1 . ' Orang' }}</span></h4>
-                            <div class="progress" style="height: 8px;">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
-                                    role="progressbar" aria-valuemin="0" aria-valuemax="1.000"
-                                    style="width:{{ $saksiPaket1 }}%"></div>
+                @foreach ($paket as $paket_item)
+                    @if ($paket_item->id == 1)
+                        <div class="card shadow mb-4">
+                            <a href="#Full" class="d-block card-header" style="background-color: #F4CE14"
+                                data-toggle="collapse" role="button" aria-expanded="true"
+                                aria-controls="collapseCardExample">
+                                <h6 class="m-0 font-weight-bold text-white">Full Data Saksi
+                                    {{ $paket_item->nama_paket }}
+                                </h6>
+                            </a>
+                            <div class="collapse show" id="Full">
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold ">Full Data Saksi<span class="float-right">
+                                            {{ $saksiPaket1 . ' Orang' }}</span></h4>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                            role="progressbar" aria-valuemin="0" aria-valuemax="1.000"
+                                            style="width:{{ $saksiPaket1 }}%"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
             </div>
 
             <div class="tab-pane fade show" id="fullsaksi" role="tabpanel" aria-labelledby="home-tab">
-                <div class="card shadow mb-4">
-                    <a href="#Full" class="d-block card-header" style="background-color: #F4CE14"
-                        data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-white">Full Data Saksi Muhammad Andri,ST (Caleg DPRD Provinsi
-                            Riau Dapil Siak - Pelalawan)
-                        </h6>
-                    </a>
-                    <div class="collapse show" id="Full">
-                        <div class="card-body">
-                            <h4 class="small font-weight-bold ">Full Data Saksi<span class="float-right">
-                                    {{ $saksiPaket2 . ' Orang' }}</span></h4>
-                            <div class="progress" style="height: 8px;">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
-                                    role="progressbar" aria-valuemin="0" aria-valuemax="1.000"
-                                    style="width:{{ $saksiPaket2 }}%"></div>
+                @foreach ($paket as $paket_item)
+                    @if ($paket_item->id == 2)
+                        <div class="card shadow mb-4">
+                            <a href="#Full" class="d-block card-header" style="background-color: #F4CE14"
+                                data-toggle="collapse" role="button" aria-expanded="true"
+                                aria-controls="collapseCardExample">
+                                <h6 class="m-0 font-weight-bold text-white">Full Data Saksi
+                                    {{ $paket_item->nama_paket }}
+                                </h6>
+                            </a>
+                            <div class="collapse show" id="Full">
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold ">Full Data Saksi<span class="float-right">
+                                            {{ $saksiPaket2 . ' Orang' }}</span></h4>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                            role="progressbar" aria-valuemin="0" aria-valuemax="1.000"
+                                            style="width:{{ $saksiPaket2 }}%"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
             </div>
 
             <div class="content-body">
@@ -578,6 +588,160 @@
                                                 </thead>
                                                 <tbody>
                                                     @forelse($saksiCaleg as $key => $saksi_item)
+                                                        <tr data-entry-id="{{ $saksi_item->id }}">
+                                                            <td>{{ $saksi_item->user->name ?? '' }}</td>
+                                                            <td>{{ $saksi_item->nama ?? '' }}</td>
+                                                            <td>{{ $saksi_item->nik ?? '' }}</td>
+                                                            <td>
+                                                                <a target="_blank"
+                                                                    href="https://api.whatsapp.com/send?phone={{ $saksi_item->no_hp }}"><svg
+                                                                        xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                        height="24" viewBox="0 0 24 24"
+                                                                        style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                            d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.275 2.188 7.42 7.42 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 0 0-.429-.008.826.826 0 0 0-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263">
+                                                                        </path>
+                                                                    </svg></a>
+                                                            </td>
+                                                            <td><a data-fancybox="gallery"
+                                                                    data-src="{{ request()->getSchemeAndHttpHost() . '/storage' . '/' . $saksi_item->foto }}"
+                                                                    class="blue accent-4">Lihat</a></td>
+                                                        </tr>
+                                                    @empty
+                                                        {{-- not found --}}
+                                                    @endforelse
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+    <!-- END: Content-->
+@endcan
+@can('paket_content')
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+
+            {{-- show error --}}
+            @if ($errors->any())
+                <div class="alert bg-danger alert-dismissible mb-2" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            {{-- breadcumb --}}
+            <div class="content-header row">
+                <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
+                    <h3 class="content-header-title mb-0 d-inline-block">Dashboard</h3>
+                    <div class="row breadcrumbs-top d-inline-block">
+                        <div class="breadcrumb-wrapper col-12">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Aktifitas</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade show" id="fullsaksi" role="tabpanel" aria-labelledby="home-tab">
+                <div class="card shadow mb-4">
+                    <a href="#Full" class="d-block card-header" style="background-color: #F4CE14"
+                        data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                        <h6 class="m-0 font-weight-bold text-white">Full Data Saksi
+                            {{ Auth::user()->paket->nama_paket }}</h6>
+                    </a>
+                    <div class="collapse show" id="Full">
+                        <div class="card-body">
+                            <h4 class="small font-weight-bold ">Full Data Saksi<span class="float-right">
+                                    {{ $saksiPaketCount . ' Orang' }}</span></h4>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                    role="progressbar" aria-valuemin="0" aria-valuemax="1.000"
+                                    style="width:{{ $saksiPaketCount }}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade show" id="fullsaksi" role="tabpanel" aria-labelledby="home-tab">
+                @foreach ($caleg as $caleg_item)
+                <div class="card shadow mb-4">
+                    <a href="#Full" class="d-block card-header" style="background-color: #F4CE14"
+                        data-toggle="collapse" role="button" aria-expanded="true"
+                        aria-controls="collapseCardExample">
+                        <h6 class="m-0 font-weight-bold text-white">Full Data Saksi
+                            {{ $caleg_item->nama_caleg }}
+                        </h6>
+                    </a>
+                    <div class="collapse show" id="Full">
+                        <div class="card-body">
+                            <h4 class="small font-weight-bold ">Full Data Saksi<span class="float-right">
+                                    {{ $saksiCalegPaket . ' Orang' }}</span></h4>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                    role="progressbar" aria-valuemin="0" aria-valuemax="1.000"
+                                    style="width:{{ $saksiCalegPaket }}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            <div class="content-body">
+                <section id="table-home">
+                    <!-- Zero configuration table -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Saksi List</h4>
+                                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                                    <div class="heading-elements">
+                                        <ul class="list-inline mb-0">
+                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                            <!-- <li><a data-action="close"><i class="ft-x"></i></a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="card-content collapse show">
+                                    <div class="card-body card-dashboard">
+
+                                        <div class="table-responsive">
+                                            <table
+                                                class="table table-striped table-bordered text-inputs-searching default-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Entri</th>
+                                                        <th>Nama</th>
+                                                        <th>NIK</th>
+                                                        <th>Whatsapp</th>
+                                                        <th>Foto</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @forelse($saksiPaket as $key => $saksi_item)
                                                         <tr data-entry-id="{{ $saksi_item->id }}">
                                                             <td>{{ $saksi_item->user->name ?? '' }}</td>
                                                             <td>{{ $saksi_item->nama ?? '' }}</td>

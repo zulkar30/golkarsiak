@@ -32,6 +32,9 @@ class StoreSaksi extends FormRequest
     public function rules()
     {
         return [
+            'paket_id' => [
+                'nullable'
+            ],
             'caleg_id' => [
                 'required'
             ],
@@ -64,12 +67,6 @@ class StoreSaksi extends FormRequest
             ],
             'status' => [
                 'required', 'string'
-            ],
-            'paket_nama1' => [
-                'nullable', 'boolean'
-            ],
-            'paket_nama2' => [
-                'nullable', 'boolean'
             ]
         ];
     }

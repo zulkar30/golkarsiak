@@ -32,6 +32,12 @@ class UpdateUser extends FormRequest
     public function rules()
     {
         return [
+            'caleg_id' => [
+                'nullable'
+            ],
+            'paket_id' => [
+                'nullable'
+            ],
             'kecamatan_id' => [
                 'nullable'
             ],

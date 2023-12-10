@@ -1,45 +1,54 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            @if (Laravel\Fortify\Features::canUpdateProfileInformation())
-                @livewire('profile.update-profile-information-form')
+@section('title', 'Dashboard')
 
-                <x-section-border />
-            @endif
+@section('content')
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.update-password-form')
+            {{-- show error --}}
+            @if ($errors->any())
+                <div class="alert bg-danger alert-dismissible mb-2" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-
-                <x-section-border />
             @endif
 
-            @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.two-factor-authentication-form')
+            {{-- breadcumb --}}
+            <div class="content-header row">
+                <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
+                    <h3 class="content-header-title mb-0 d-inline-block">Profile</h3>
+                    <div class="row breadcrumbs-top d-inline-block">
+                        <div class="breadcrumb-wrapper col-12">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">My Profile</li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
-
-                <x-section-border />
-            @endif
-
-            <div class="mt-10 sm:mt-0">
-                @livewire('profile.logout-other-browser-sessions-form')
             </div>
 
-            @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                <x-section-border />
-
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.delete-user-form')
+            <div class="row">
+                <div class="col">
+                    <h1>My Profile</h1>
+                    <h3>Email: {{ $user->email }}</h3>
+                    <h3>Name: {{ $user->name }}</h3>
+                    <h3>Kecamatan: {{ $user->kecamatan->nama_kecamatan }}</h3>
+                    <h3>Desa: {{ $user->desa->nama_desa ?? 'Belum Memiliki Desa' }}</h3>
+                    <h3>TPS: {{ $user->tps->nama_tps ?? 'Belum Memiliki TPS'}}</h3>
                 </div>
-            @endif
+            </div>
+
         </div>
     </div>
-</x-app-layout>
+    <!-- END: Content-->
+@endsection

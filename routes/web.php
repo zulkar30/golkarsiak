@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
 
     // User Page
     Route::resource('user', UserController::class);
+    Route::get('/user/profile', [UserController::class, 'showUser'])->name('user.profile');
 
     // Permission Page
     Route::get('permission', [PermissionController::class, 'index'])->name('permission');
