@@ -138,6 +138,12 @@ class DesaSeeder extends Seeder
             ],
             [
                 'kecamatan_id'      => 2,
+                'nama_desa'      => 'Harapan	',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'kecamatan_id'      => 2,
                 'nama_desa'      => 'Kayu Ara Permai	',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -301,6 +307,12 @@ class DesaSeeder extends Seeder
             [
                 'kecamatan_id'      => 6,
                 'nama_desa'      => 'Teluk Merbau	',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'kecamatan_id'      => 6,
+                'nama_desa'      => 'Merangkai	',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

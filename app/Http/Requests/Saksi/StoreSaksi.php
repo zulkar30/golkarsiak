@@ -67,7 +67,10 @@ class StoreSaksi extends FormRequest
             ],
             'status' => [
                 'required', 'string'
-            ]
+            ],
+            'foto' => [
+                'required', 'mimes:jpeg,svg,png', 'max:10000'
+            ],
         ];
     }
 }

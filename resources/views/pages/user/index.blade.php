@@ -163,7 +163,8 @@
                                                             <label class="col-md-3 label-control">Paket <code
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
-                                                                <select name="paket_id" id="paket_id" class="form-control select2">
+                                                                <select name="paket_id" id="paket_id"
+                                                                    class="form-control select2">
                                                                     <option value="{{ '' }}" disabled selected>Pilih
                                                                         Paket
                                                                     </option>
@@ -181,8 +182,8 @@
                                                             </div>
                                                         </div>
 
-                                                        <div
-                                                            class="form-group row {{ $errors->has('kecamatan_id') ? 'has-error' : '' }}" id="kecamatanInput">
+                                                        <div class="form-group row {{ $errors->has('kecamatan_id') ? 'has-error' : '' }}"
+                                                            id="kecamatanInput">
                                                             <label class="col-md-3 label-control">Kecamatan <code
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
@@ -205,8 +206,8 @@
                                                             </div>
                                                         </div>
 
-                                                        <div
-                                                            class="form-group row {{ $errors->has('desa_id') ? 'has-error' : '' }}" id="desaInput">
+                                                        <div class="form-group row {{ $errors->has('desa_id') ? 'has-error' : '' }}"
+                                                            id="desaInput">
                                                             <label class="col-md-3 label-control">Desa <code
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
@@ -416,6 +417,30 @@
                                                                 @if ($errors->has('desa_id'))
                                                                     <p style="font-style: bold; color: red;">
                                                                         {{ $errors->first('desa_id') }}</p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row {{ $errors->has('tps_id') ? 'has-error' : '' }}"
+                                                            id="tpsInput">
+                                                            <label class="col-md-3 label-control">TPS <code
+                                                                    style="color:red;">required</code></label>
+                                                            <div class="col-md-9 mx-auto">
+                                                                <select name="tps_id" id="tps_id"
+                                                                    class="form-control select2">
+                                                                    <option value="{{ '' }}" disabled selected>Pilih
+                                                                        TPS
+                                                                    </option>
+                                                                    @foreach ($tps as $key => $tps_item)
+                                                                        <option value="{{ $tps_item->id }}">
+                                                                            {{ $tps_item->nama_tps }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                </select>
+
+                                                                @if ($errors->has('tps_id'))
+                                                                    <p style="font-style: bold; color: red;">
+                                                                        {{ $errors->first('tps_id') }}</p>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -982,6 +1007,9 @@
             var roles_korcam = [{
                 id: 3,
                 name: 'KORDES'
+            }, {
+                id: 4,
+                name: 'KORTPS'
             }];
 
             roles_korcam.forEach(function(role) {
@@ -993,9 +1021,7 @@
                 var selectedRoles = $('#role_korcam').val();
                 var formData = new FormData();
 
-                if (selectedRoles.indexOf("3") === -1) {
-                    selectedRoles.push("3");
-                }
+                // You can add additional logic here if needed
 
                 formData.append('role', selectedRoles);
 
@@ -1008,8 +1034,7 @@
                     success: function(response) {
                         console.log(response);
                         alert('Berhasil Menambahkan User Baru');
-                        window.location.href =
-                            '{{ route('user.index') }}';
+                        window.location.href = '{{ route('user.index') }}';
                     },
                     error: function(error) {
                         console.error(error);
@@ -1067,6 +1092,13 @@
             } else if (selectedRoles && selectedRoles.includes('6')) {
                 $('#paketInput').show();
                 $('#kecamatanInput, #desaInput').hide();
+            }
+        });
+
+        $('#role_korcam').on('change', function() {
+            var selectedRoles = $(this).val();
+            if (selectedRoles && (selectedRoles.includes('4'))) {
+                $('#tpsInput').show();
             }
         });
     </script>

@@ -14,7 +14,7 @@
     <tr>
         <th>Jenis Kelamin</th>
         <td>
-            @if($saksi->jenis_kelamin == 'laki-laki')
+            @if ($saksi->jenis_kelamin == 'laki-laki')
                 <span>{{ 'Laki-laki' }}</span>
             @elseif($saksi->jenis_kelamin == 'perempuan')
                 <span>{{ 'Perempuan' }}</span>
@@ -41,12 +41,12 @@
     </tr>
     <tr>
         <th>TPS</th>
-        <td>{{ isset($saksi->tps->nama_tps) ? $saksi->tps->nama_tps  : 'N/A' }}</td>
+        <td>{{ isset($saksi->tps->nama_tps) ? $saksi->tps->nama_tps : 'N/A' }}</td>
     </tr>
     <tr>
         <th>Status</th>
         <td>
-            @if($saksi->status == 'active')
+            @if ($saksi->status == 'active')
                 <span class="badge badge-success">{{ 'AKTIF' }}</span>
             @elseif($saksi->status == 'passive')
                 <span class="badge badge-danger">{{ 'PASIF' }}</span>
@@ -58,5 +58,13 @@
     <tr>
         <th>Caleg Pilihan</th>
         <td>{{ isset($saksi->caleg->nama_caleg) ? $saksi->caleg->nama_caleg : 'N/A' }}</td>
+    </tr>
+    <tr>
+        <th>Paket Pilihan</th>
+        <td>
+            @foreach ($saksi->paket as $id => $paket)
+            <span class="badge bg-yellow text-dark mr-1 mb-1">{{ isset($paket->nama_paket) ? $paket->nama_paket : 'N/A' }}</span>
+        @endforeach
+        </td>
     </tr>
 </table>

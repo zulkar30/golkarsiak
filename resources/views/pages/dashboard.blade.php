@@ -40,13 +40,23 @@
 
                 <div class="row">
                     <div class="col">
+                        <div class="row justify-content-center mb-2">
+                            <div class="col-sm-2 text-center">
+                                <img src="{{ asset('assets/images/logo-golkar2.png') }}" class="img-thumbnail img-fluid"
+                                    style="height: 100px;">
+                            </div>
+                        </div>
                         <div class="row justify-content-center">
                             <div class="col-sm-2 text-center">
-                                <img src="{{ asset('assets/images/logo-siak1.png') }}" class="img-thumbnail img-fluid"
+                                <img src="{{ asset('assets/images/paslon.png') }}" class="img-thumbnail img-fluid"
                                     style="height: 100px;">
                             </div>
                             <div class="col-sm-2 text-center">
-                                <img src="{{ asset('assets/images/logo-golkar1.png') }}" class="img-thumbnail img-fluid"
+                                <img src="{{ asset('assets/images/paslon.png') }}" class="img-thumbnail img-fluid"
+                                    style="height: 100px;">
+                            </div>
+                            <div class="col-sm-2 text-center">
+                                <img src="{{ asset('assets/images/paslon.png') }}" class="img-thumbnail img-fluid"
                                     style="height: 100px;">
                             </div>
                         </div>

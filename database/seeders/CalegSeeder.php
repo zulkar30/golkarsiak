@@ -29,6 +29,12 @@ class CalegSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
+                'dapil_id'      => 1,
+                'nama_caleg'      => 'Wan Hamzah',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
                 'dapil_id'      => 2,
                 'nama_caleg'      => 'Tarmijan, SM',
                 'created_at' => date('Y-m-d H:i:s'),
@@ -60,7 +66,13 @@ class CalegSeeder extends Seeder
             ],
             [
                 'dapil_id'      => 3,
-                'nama_caleg'      => 'Naufal Haddrami',
+                'nama_caleg'      => 'Unggal Gultom',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'dapil_id'      => 3,
+                'nama_caleg'      => 'Zulkifli, S.Sos,. M.Si',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

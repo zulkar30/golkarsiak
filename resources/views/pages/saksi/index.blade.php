@@ -302,20 +302,18 @@
 
                                                         <div class="form-group row">
                                                             <label class="col-md-3 label-control" for="foto">Foto <code
-                                                                    style="color:green;">optional</code></label>
+                                                                    style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
                                                                 <div class="custom-file">
                                                                     <input type="file"
                                                                         accept="image/png, image/svg, image/jpeg"
-                                                                        class="custom-file-input" id="foto" name="foto">
+                                                                        class="custom-file-input" id="foto" name="foto" required>
                                                                     <label class="custom-file-label" for="foto"
                                                                         aria-describedby="foto">Pilih File</label>
                                                                 </div>
 
                                                                 <p class="text-muted"><small class="text-danger">Hanya dapat
-                                                                        mengunggah 1 file</small><small> dan yang dapat digunakan
-                                                                        JPEG, SVG, PNG & Maksimal ukuran file hanya 10
-                                                                        MegaBytes</small></p>
+                                                                    mengunggah 1 file</small><small> dan foto yang digunakan harus foto selfie memegang KTP</small></p>
 
                                                                 @if ($errors->has('foto'))
                                                                     <p style="font-style: bold; color: red;">
@@ -583,20 +581,18 @@
 
                                                         <div class="form-group row">
                                                             <label class="col-md-3 label-control" for="foto">Foto <code
-                                                                    style="color:green;">optional</code></label>
+                                                                    style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
                                                                 <div class="custom-file">
                                                                     <input type="file"
                                                                         accept="image/png, image/svg, image/jpeg"
-                                                                        class="custom-file-input" id="foto" name="foto">
+                                                                        class="custom-file-input" id="foto" name="foto" required>
                                                                     <label class="custom-file-label" for="foto"
                                                                         aria-describedby="foto">Pilih File</label>
                                                                 </div>
 
                                                                 <p class="text-muted"><small class="text-danger">Hanya dapat
-                                                                        mengunggah 1 file</small><small> dan yang dapat digunakan
-                                                                        JPEG, SVG, PNG & Maksimal ukuran file hanya 10
-                                                                        MegaBytes</small></p>
+                                                                        mengunggah 1 file</small><small> dan foto yang digunakan harus foto selfie memegang KTP</small></p>
 
                                                                 @if ($errors->has('foto'))
                                                                     <p style="font-style: bold; color: red;">
@@ -860,7 +856,7 @@
 
                                                         <div class="form-group row">
                                                             <label class="col-md-3 label-control" for="foto">Foto <code
-                                                                    style="color:green;">optional</code></label>
+                                                                    style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
                                                                 <div class="custom-file">
                                                                     <input type="file"
@@ -872,9 +868,7 @@
                                                                 </div>
 
                                                                 <p class="text-muted"><small class="text-danger">Hanya dapat
-                                                                        mengunggah 1 file</small><small> dan yang dapat digunakan
-                                                                        JPEG, SVG, PNG & Maksimal ukuran file hanya 10
-                                                                        MegaBytes</small></p>
+                                                                    mengunggah 1 file</small><small> dan foto yang digunakan harus foto selfie memegang KTP</small></p>
 
                                                                 @if ($errors->has('foto'))
                                                                     <p style="font-style: bold; color: red;">
@@ -1134,20 +1128,18 @@
 
                                                         <div class="form-group row">
                                                             <label class="col-md-3 label-control" for="foto">Foto <code
-                                                                    style="color:green;">optional</code></label>
+                                                                    style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
                                                                 <div class="custom-file">
                                                                     <input type="file"
                                                                         accept="image/png, image/svg, image/jpeg"
-                                                                        class="custom-file-input" id="foto" name="foto">
+                                                                        class="custom-file-input" id="foto" name="foto" required>
                                                                     <label class="custom-file-label" for="foto"
                                                                         aria-describedby="foto">Pilih File</label>
                                                                 </div>
 
                                                                 <p class="text-muted"><small class="text-danger">Hanya dapat
-                                                                        mengunggah 1 file</small><small> dan yang dapat digunakan
-                                                                        JPEG, SVG, PNG & Maksimal ukuran file hanya 10
-                                                                        MegaBytes</small></p>
+                                                                    mengunggah 1 file</small><small> dan foto yang digunakan harus foto selfie memegang KTP</small></p>
 
                                                                 @if ($errors->has('foto'))
                                                                     <p style="font-style: bold; color: red;">

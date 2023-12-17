@@ -68,7 +68,10 @@ class UpdateSaksi extends FormRequest
             ],
             'status' => [
                 'nullable', 'string'
-            ]
+            ],
+            'foto' => [
+                'nullable', 'mimes:jpeg,svg,png', 'max:10000'
+            ],
         ];
     }
 }
