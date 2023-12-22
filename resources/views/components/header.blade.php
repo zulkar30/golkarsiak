@@ -39,6 +39,8 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="{{ route('user.profile') }}"><i class="ft-user"></i> Profile</a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('user.change-password') }}"><i class="ft-keys"></i> Ganti Password</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="ft-power"></i> Keluar

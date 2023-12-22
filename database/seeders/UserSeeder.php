@@ -19,11 +19,13 @@ class UserSeeder extends Seeder
         $user = [
             [
                 'kecamatan_id'           => 1,
-                'desa_id'           => 6,
-                'tps_id'           => 75,
-                'name'           => 'Zulkarnain',
-                'email'          => 'korkab@gmail.com',
-                'password'       => Hash::make('korkab@gmail.com'),
+                'desa_id'           => 1,
+                'tps_id'           => 1,
+                'caleg_id'           => 1,
+                'paket_id'           => 1,
+                'name'           => 'Super Admin',
+                'email'          => 'superadmin@gmail.com',
+                'password'       => Hash::make('superadmin@gmail.com'),
                 'remember_token' => null,
                 'created_at'     => date('Y-m-d H:i:s'),
                 'updated_at'     => date('Y-m-d H:i:s'),

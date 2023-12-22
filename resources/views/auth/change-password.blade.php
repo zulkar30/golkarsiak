@@ -50,26 +50,33 @@
                                                 alt="PPP Logo" width="95" height="95">
                                             <h5 class="h5 text-gray-900 mb-4 mt-3">GOLKAR</h5>
                                         </div>
-                                        <form class="user" method="post" action="{{ route('user.change-password.update') }}">
+                                        @if (session('status'))
+                                            <div class="alert alert-success">{{ session('status') }}</div>
+                                        @elseif(session('error'))
+                                            <div class="alert alert-danger">{{ session('error') }}</div>
+                                        @endif
+                                        <form class="user" method="post"
+                                            action="{{ route('user.change-password.update') }}">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-user" id="old_password"
-                                                    name="old_password" placeholder="Password Lama">
+                                                <input type="password" class="form-control form-control-user"
+                                                    id="old_password" name="old_password" placeholder="Password Lama">
                                                 @error('old_password')
                                                     <small class="text-danger pl-3">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-user" id="new_password"
-                                                    name="new_password" placeholder="Password Baru">
+                                                <input type="password" class="form-control form-control-user"
+                                                    id="new_password" name="new_password" placeholder="Password Baru">
                                                 @error('new_password')
                                                     <small class="text-danger pl-3">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-user" id="repeat_confirmation"
-                                                    name="repeat_confirmation" placeholder="Konrfirmasi Password">
-                                                @error('repeat_confirmation')
+                                                <input type="password" class="form-control form-control-user"
+                                                    id="repeat_password" name="repeat_password"
+                                                    placeholder="Konrfirmasi Password">
+                                                @error('repeat_password')
                                                     <small class="text-danger pl-3">{{ $message }}</small>
                                                 @enderror
                                             </div>

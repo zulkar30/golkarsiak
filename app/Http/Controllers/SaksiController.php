@@ -36,13 +36,14 @@ class SaksiController extends Controller
         abort_if(Gate::denies('saksi_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $userId = FacadesAuth::id();
-        $saksi = Saksi::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
+        $saksi = Saksi::orderBy('created_at', 'desc')->get();
+        $saksiUser = Saksi::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
         $kecamatan = Kecamatan::all();
         $desa = Desa::all();
         $tps = Tps::all();
         $caleg = Caleg::all();
         $paketData = Paket::all();
-        return view('pages.saksi.index', compact('saksi', 'kecamatan', 'desa', 'tps', 'caleg', 'paketData'));
+        return view('pages.saksi.index', compact('saksi', 'saksiUser', 'kecamatan', 'desa', 'tps', 'caleg', 'paketData'));
     }
 
     /**
@@ -65,6 +66,8 @@ class SaksiController extends Controller
     {
         // Ambil semua data dari frontsite
         $data = $request->all();
+
+        $data['no_hp'] = '62' . preg_replace('/[^0-9]/', '', $data['no_hp']);
 
         // upload process here
         $path = public_path('app/public/assets/file-saksi');

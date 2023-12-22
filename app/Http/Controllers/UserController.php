@@ -35,9 +35,13 @@ class UserController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $loggedUser = Auth::user();
+        if ($loggedUser->id != 1) {
+            $user = User::where('id', '!=', 1)->orderBy('created_at', 'desc')->get();
+        } else {
+            $user = User::orderBy('created_at', 'desc')->get();
+        }
 
-
-        $user = User::orderBy('created_at', 'desc')->get();
         $roles = Role::all()->pluck('name', 'id');
         $kecamatan = Kecamatan::orderBy('id', 'asc')->get();
         $desa = Desa::orderBy('id', 'asc')->get();
@@ -204,5 +208,25 @@ class UserController extends Controller
     {
         $user = Auth::user();
         return view('profile.show', compact('user'));
+    }
+
+    public function changePassword()
+    {
+        return view('auth.change-password');
+    }
+
+    public function changePasswordUpdate(Request $request)
+    {
+        if(!Hash::check($request->old_password, Auth::user()->password)){
+            return back()->with('error', 'Password Lama Tidak Sama Dengan Yang Anda Gunakan Saat Ini');
+        }
+        if($request->new_password != $request->repeat_password){
+            return back()->with('error', 'Password baru Dan Repeat Password Tidak Sama');
+        }
+        Auth::user()->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with('status', 'Password Berhasil Diperbarui');
     }
 }

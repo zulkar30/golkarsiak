@@ -45,10 +45,14 @@
                     <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                         @foreach ($desa->tps as $tps)
                             <li class="nav-item m-1" role="presentation">
-                                <a class="nav-link btn-sm text-dark border-top border-right border-left"
+                                <a class="nav-link btn-sm text-dark border-top border-right border-left position-relative"
                                     id="tps{{ $tps->id }}-tab" data-toggle="tab" href="#tps{{ $tps->id }}"
-                                    role="tab" aria-controls="home" aria-selected="true"
-                                    style="text-decoration: none">{{ $tps->nama_tps }}</a>
+                                    role="tab" aria-controls="home" aria-selected="true" style="text-decoration: none">
+                                    {{ $tps->nama_tps }}
+                                </a>
+                                <span class="badge badge-info position-absolute top-0 right-0">
+                                    {{ $tps->saksi->count() }}
+                                </span>
                             </li>
                         @endforeach
                     </ul>
@@ -152,7 +156,7 @@
             // Pilih tab pertama
             var firstTab = document.querySelector('#myTab a.nav-link');
             if (firstTab) {
-                firstTab.click(); // Klik tab pertama
+                firstTab.click();
             }
         });
         // Fancybox

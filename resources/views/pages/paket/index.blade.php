@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Calon Legislatif')
+@section('title', 'Paket')
 
 @section('content')
     <!-- BEGIN: Content-->
@@ -26,12 +26,12 @@
             {{-- breadcumb --}}
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-                    <h3 class="content-header-title mb-0 d-inline-block">Calon Legislatif</h3>
+                    <h3 class="content-header-title mb-0 d-inline-block">Paket</h3>
                     <div class="row breadcrumbs-top d-inline-block">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">Dashboard</li>
-                                <li class="breadcrumb-item active">Calon Legislatif</li>
+                                <li class="breadcrumb-item active">Paket</li>
                             </ol>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
             </div>
 
             {{-- table card --}}
-            @can('caleg_table')
+            @can('paket_table')
                 <div class="content-body">
                     <section id="table-home">
                         <!-- Zero configuration table -->
@@ -47,7 +47,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Calon Legislatif List</h4>
+                                        <h4 class="card-title">Paket List</h4>
                                         <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                         <div class="heading-elements">
                                             <ul class="list-inline mb-0">
@@ -66,16 +66,14 @@
                                                     <thead>
                                                         <tr>
                                                             <th>No</th>
-                                                            <th>Calon Legislatif</th>
-                                                            <th>Daerah Pilihan</th>
+                                                            <th>Paket</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @forelse($caleg as $key => $caleg_item)
-                                                            <tr data-entry-id="{{ $caleg_item->id }}">
+                                                        @forelse($paket as $key => $paket_item)
+                                                            <tr data-entry-id="{{ $paket_item->id }}">
                                                                 <td>{{ $loop->iteration ?? '' }}</td>
-                                                                <td>{{ $caleg_item->nama_caleg ?? '' }}</td>
-                                                                <td>{{ $caleg_item->dapil->nama_dapil ?? '' }}</td>
+                                                                <td>{{ $paket_item->nama_paket ?? '' }}</td>
                                                             </tr>
                                                         @empty
                                                             {{-- not found --}}
@@ -84,7 +82,7 @@
                                                     <tfoot>
                                                         <tr>
                                                             <th>No</th>
-                                                            <th>Calon Legislatif</th>
+                                                            <th>Paket</th>
                                                         </tr>
                                                     </tfoot>
                                                 </table>

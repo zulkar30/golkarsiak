@@ -22,7 +22,7 @@ return new class extends Migration
             ->references('id')->on('desa')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->foreignId('tps_id', 'fk_saksi_to_tps')
             ->references('id')->on('tps')->onUpdate('CASCADE')->onDelete('CASCADE');
-            $table->foreignId('user_id', 'fk_saksi_to_user')
+            $table->foreignId('user_id', 'fk_saksi_to_users')
             ->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }

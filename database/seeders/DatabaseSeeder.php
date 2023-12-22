@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
             KecamatanSeeder::class,
             DesaSeeder::class,
             TpsSeeder::class,
+            PaketSeeder::class,
             UserSeeder::class,
             PermissionSeeder::class,
             RoleSeeder::class,
             PermissionRoleSeeder::class,
             RoleUserSeeder::class,
-            PaketSeeder::class
         ]);
     }
 }

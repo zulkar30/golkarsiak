@@ -94,6 +94,12 @@ class CalegSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
+            [
+                'dapil_id'      => 4,
+                'nama_caleg'      => 'Jondris Pakpahan, SH',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ];
 
         Caleg::insert($caleg);

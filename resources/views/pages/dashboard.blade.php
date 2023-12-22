@@ -48,15 +48,15 @@
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-sm-2 text-center">
-                                <img src="{{ asset('assets/images/paslon.png') }}" class="img-thumbnail img-fluid"
+                                <img src="{{ asset('assets/images/erlangga.jpg') }}" class="img-thumbnail img-fluid"
                                     style="height: 100px;">
                             </div>
                             <div class="col-sm-2 text-center">
-                                <img src="{{ asset('assets/images/paslon.png') }}" class="img-thumbnail img-fluid"
+                                <img src="{{ asset('assets/images/syamsuar.jpg') }}" class="img-thumbnail img-fluid"
                                     style="height: 100px;">
                             </div>
                             <div class="col-sm-2 text-center">
-                                <img src="{{ asset('assets/images/paslon.png') }}" class="img-thumbnail img-fluid"
+                                <img src="{{ asset('assets/images/indra.jpg') }}" class="img-thumbnail img-fluid"
                                     style="height: 100px;">
                             </div>
                         </div>
@@ -317,6 +317,7 @@
                             </div>
                         </div>
                     </div>
+
                     @can('korkab_dapil')
                         @foreach ($dapilData as $dapil)
                             <div class="tab-pane fade show" id="DapilSiak{{ $dapil->id }}" role="tabpanel"
@@ -488,12 +489,42 @@
                 </div>
             </div>
 
+            <div class="row mb-5">
+                <div class="col">
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-sm-2 text-center">
+                            <img src="{{ asset('assets/images/logo-golkar2.png') }}" class="img-thumbnail img-fluid"
+                                style="height: 100px;">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-sm-2 text-center">
+                            <img src="{{ asset('assets/images/erlangga.jpg') }}" class="img-thumbnail img-fluid"
+                                style="height: 100px;">
+                        </div>
+                        <div class="col-sm-2 text-center">
+                            <img src="{{ asset('assets/images/syamsuar.jpg') }}" class="img-thumbnail img-fluid"
+                                style="height: 100px;">
+                        </div>
+                        <div class="col-sm-2 text-center">
+                            <img src="{{ asset('assets/images/indra.jpg') }}" class="img-thumbnail img-fluid"
+                                style="height: 100px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="tab-pane fade show" id="fullsaksi" role="tabpanel" aria-labelledby="home-tab">
                 <div class="card shadow mb-4">
                     <a href="#Full" class="d-block card-header" style="background-color: #F4CE14"
                         data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-white">Full Data Saksi Caleg
-                            {{ Auth::user()->caleg->nama_caleg }}</h6>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="m-0 font-weight-bold text-white">Full Data Saksi Caleg
+                                {{ Auth::user()->caleg->nama_caleg }}</h6>
+                            <img src="{{ Auth::user()->foto ? url(Storage::url(Auth::user()->foto)) : asset('assets/images/paslon.png') }}"
+                                alt="Caleg Photo" class="img-thumbnail"
+                                style="width: 50px; height: 50px; object-fit: cover;">
+                        </div>
                     </a>
                     <div class="collapse show" id="Full">
                         <div class="card-body">
@@ -636,6 +667,7 @@
     </div>
     <!-- END: Content-->
 @endcan
+
 @can('paket_content')
     <!-- BEGIN: Content-->
     <div class="app-content content">
@@ -671,12 +703,42 @@
                 </div>
             </div>
 
+            <div class="row mb-5">
+                <div class="col">
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-sm-2 text-center">
+                            <img src="{{ asset('assets/images/logo-golkar2.png') }}" class="img-thumbnail img-fluid"
+                                style="height: 100px;">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-sm-2 text-center">
+                            <img src="{{ asset('assets/images/erlangga.jpg') }}" class="img-thumbnail img-fluid"
+                                style="height: 100px;">
+                        </div>
+                        <div class="col-sm-2 text-center">
+                            <img src="{{ asset('assets/images/syamsuar.jpg') }}" class="img-thumbnail img-fluid"
+                                style="height: 100px;">
+                        </div>
+                        <div class="col-sm-2 text-center">
+                            <img src="{{ asset('assets/images/indra.jpg') }}" class="img-thumbnail img-fluid"
+                                style="height: 100px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="tab-pane fade show" id="fullsaksi" role="tabpanel" aria-labelledby="home-tab">
                 <div class="card shadow mb-4">
                     <a href="#Full" class="d-block card-header" style="background-color: #F4CE14"
                         data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-white">Full Data Saksi
-                            {{ Auth::user()->paket->nama_paket }}</h6>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="m-0 font-weight-bold text-white">Full Data Saksi Caleg
+                                {{ Auth::user()->paket->nama_paket }}</h6>
+                            <img src="{{ Auth::user()->foto ? url(Storage::url(Auth::user()->foto)) : asset('assets/images/paslon.png') }}"
+                                alt="Paket Photo" class="img-thumbnail"
+                                style="width: 50px; height: 50px; object-fit: cover;">
+                        </div>
                     </a>
                     <div class="collapse show" id="Full">
                         <div class="card-body">
@@ -694,28 +756,38 @@
 
             <div class="tab-pane fade show" id="fullsaksi" role="tabpanel" aria-labelledby="home-tab">
                 @foreach ($caleg as $caleg_item)
-                <div class="card shadow mb-4">
-                    <a href="#Full" class="d-block card-header" style="background-color: #F4CE14"
-                        data-toggle="collapse" role="button" aria-expanded="true"
-                        aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-white">Full Data Saksi
-                            {{ $caleg_item->nama_caleg }}
-                        </h6>
-                    </a>
-                    <div class="collapse show" id="Full">
-                        <div class="card-body">
-                            <h4 class="small font-weight-bold ">Full Data Saksi<span class="float-right">
-                                    {{ $saksiCalegPaket . ' Orang' }}</span></h4>
-                            <div class="progress" style="height: 8px;">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
-                                    role="progressbar" aria-valuemin="0" aria-valuemax="1.000"
-                                    style="width:{{ $saksiCalegPaket }}%"></div>
+                    <div class="card shadow mb-4">
+                        <a href="#Full{{ $caleg_item->id }}" class="d-block card-header" style="background-color: #F4CE14"
+                            data-toggle="collapse" role="button" aria-expanded="true"
+                            aria-controls="collapseCardExample">
+                            <h6 class="m-0 font-weight-bold text-white">Full Data Saksi
+                                {{ $caleg_item->nama_caleg }}
+                            </h6>
+                        </a>
+                        <div class="collapse show" id="Full{{ $caleg_item->id }}">
+                            <div class="card-body">
+                                <?php
+                                // Ambil data saksi berdasarkan caleg_id dan paket_id
+                                $saksiData = \DB::table('saksi')
+                                    ->join('paket_saksi', 'saksi.id', '=', 'paket_saksi.saksi_id')
+                                    ->where('saksi.caleg_id', $caleg_item->id)
+                                    ->where('paket_saksi.paket_id', Auth::user()->paket_id) // Ganti $paket_id dengan paket_id yang sesuai
+                                    ->get();
+                                $saksiCount = count($saksiData);
+                                ?>
+                                <h4 class="small font-weight-bold">Full Data Saksi<span class="float-right">
+                                        {{ $saksiCount . ' Orang' }}</span></h4>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                        role="progressbar" aria-valuemin="0" aria-valuemax="1.000"
+                                        style="width:{{ $saksiCount }}%"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
+
 
             <div class="content-body">
                 <section id="table-home">
@@ -801,6 +873,21 @@
 
         .img-container img {
             max-width: 100%;
+        }
+
+        .img-thumbnail {
+            width: 100px;
+            height: auto;
+        }
+
+        @media (max-width: 500px) {
+            .col-sm-2 {
+                width: 30%;
+            }
+
+            .row.justify-content-center .col-sm-2 {
+                margin: 0 auto;
+            }
         }
     </style>
 @endpush

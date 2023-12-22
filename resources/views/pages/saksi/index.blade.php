@@ -143,9 +143,14 @@
                                                             <label class="col-md-3 label-control" for="no_hp">Whatsapp <code
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
-                                                                <input type="number" id="no_hp" name="no_hp"
-                                                                    placeholder="Nomor Aktif" class="form-control"
-                                                                    value="{{ old('no_hp') }}" autocomplete="off">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">62</span>
+                                                                    </div>
+                                                                    <input type="text" id="no_hp" name="no_hp"
+                                                                        placeholder="Nomor Aktif" class="form-control"
+                                                                        value="{{ old('no_hp') }}" autocomplete="off">
+                                                                </div>
 
                                                                 @if ($errors->has('no_hp'))
                                                                     <p style="font-style: bold; color: red;">
@@ -307,13 +312,15 @@
                                                                 <div class="custom-file">
                                                                     <input type="file"
                                                                         accept="image/png, image/svg, image/jpeg"
-                                                                        class="custom-file-input" id="foto" name="foto" required>
+                                                                        class="custom-file-input" id="foto" name="foto"
+                                                                        required>
                                                                     <label class="custom-file-label" for="foto"
                                                                         aria-describedby="foto">Pilih File</label>
                                                                 </div>
 
                                                                 <p class="text-muted"><small class="text-danger">Hanya dapat
-                                                                    mengunggah 1 file</small><small> dan foto yang digunakan harus foto selfie memegang KTP</small></p>
+                                                                        mengunggah 1 file</small><small> dan foto yang digunakan
+                                                                        harus foto selfie memegang KTP</small></p>
 
                                                                 @if ($errors->has('foto'))
                                                                     <p style="font-style: bold; color: red;">
@@ -427,9 +434,14 @@
                                                             <label class="col-md-3 label-control" for="no_hp">Whatsapp <code
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
-                                                                <input type="number" id="no_hp" name="no_hp"
-                                                                    placeholder="Nomor Aktif" class="form-control"
-                                                                    value="{{ old('no_hp') }}" autocomplete="off">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">62</span>
+                                                                    </div>
+                                                                    <input type="text" id="no_hp" name="no_hp"
+                                                                        placeholder="Nomor Aktif" class="form-control"
+                                                                        value="{{ old('no_hp') }}" autocomplete="off">
+                                                                </div>
 
                                                                 @if ($errors->has('no_hp'))
                                                                     <p style="font-style: bold; color: red;">
@@ -586,13 +598,15 @@
                                                                 <div class="custom-file">
                                                                     <input type="file"
                                                                         accept="image/png, image/svg, image/jpeg"
-                                                                        class="custom-file-input" id="foto" name="foto" required>
+                                                                        class="custom-file-input" id="foto" name="foto"
+                                                                        required>
                                                                     <label class="custom-file-label" for="foto"
                                                                         aria-describedby="foto">Pilih File</label>
                                                                 </div>
 
                                                                 <p class="text-muted"><small class="text-danger">Hanya dapat
-                                                                        mengunggah 1 file</small><small> dan foto yang digunakan harus foto selfie memegang KTP</small></p>
+                                                                        mengunggah 1 file</small><small> dan foto yang digunakan
+                                                                        harus foto selfie memegang KTP</small></p>
 
                                                                 @if ($errors->has('foto'))
                                                                     <p style="font-style: bold; color: red;">
@@ -706,9 +720,14 @@
                                                             <label class="col-md-3 label-control" for="no_hp">Whatsapp <code
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
-                                                                <input type="number" id="no_hp" name="no_hp"
-                                                                    placeholder="Nomor Aktif" class="form-control"
-                                                                    value="{{ old('no_hp') }}" autocomplete="off">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">62</span>
+                                                                    </div>
+                                                                    <input type="text" id="no_hp" name="no_hp"
+                                                                        placeholder="Nomor Aktif" class="form-control"
+                                                                        value="{{ old('no_hp') }}" autocomplete="off">
+                                                                </div>
 
                                                                 @if ($errors->has('no_hp'))
                                                                     <p style="font-style: bold; color: red;">
@@ -868,7 +887,8 @@
                                                                 </div>
 
                                                                 <p class="text-muted"><small class="text-danger">Hanya dapat
-                                                                    mengunggah 1 file</small><small> dan foto yang digunakan harus foto selfie memegang KTP</small></p>
+                                                                        mengunggah 1 file</small><small> dan foto yang digunakan
+                                                                        harus foto selfie memegang KTP</small></p>
 
                                                                 @if ($errors->has('foto'))
                                                                     <p style="font-style: bold; color: red;">
@@ -981,9 +1001,14 @@
                                                             <label class="col-md-3 label-control" for="no_hp">Whatsapp <code
                                                                     style="color:red;">required</code></label>
                                                             <div class="col-md-9 mx-auto">
-                                                                <input type="number" id="no_hp" name="no_hp"
-                                                                    placeholder="Nomor Aktif" class="form-control"
-                                                                    value="{{ old('no_hp') }}" autocomplete="off">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">62</span>
+                                                                    </div>
+                                                                    <input type="text" id="no_hp" name="no_hp"
+                                                                        placeholder="Nomor Aktif" class="form-control"
+                                                                        value="{{ old('no_hp') }}" autocomplete="off">
+                                                                </div>
 
                                                                 @if ($errors->has('no_hp'))
                                                                     <p style="font-style: bold; color: red;">
@@ -1133,13 +1158,15 @@
                                                                 <div class="custom-file">
                                                                     <input type="file"
                                                                         accept="image/png, image/svg, image/jpeg"
-                                                                        class="custom-file-input" id="foto" name="foto" required>
+                                                                        class="custom-file-input" id="foto" name="foto"
+                                                                        required>
                                                                     <label class="custom-file-label" for="foto"
                                                                         aria-describedby="foto">Pilih File</label>
                                                                 </div>
 
                                                                 <p class="text-muted"><small class="text-danger">Hanya dapat
-                                                                    mengunggah 1 file</small><small> dan foto yang digunakan harus foto selfie memegang KTP</small></p>
+                                                                        mengunggah 1 file</small><small> dan foto yang digunakan
+                                                                        harus foto selfie memegang KTP</small></p>
 
                                                                 @if ($errors->has('foto'))
                                                                     <p style="font-style: bold; color: red;">
@@ -1186,7 +1213,7 @@
             @endcan
 
             {{-- table card --}}
-            @can('saksi_table')
+            @can('korkab_table')
                 <div class="content-body">
                     <section id="table-home">
                         <!-- Zero configuration table -->
@@ -1226,6 +1253,137 @@
                                                     </thead>
                                                     <tbody>
                                                         @forelse($saksi as $key => $saksi_item)
+                                                            <tr data-entry-id="{{ $saksi_item->id }}">
+                                                                <td>{{ isset($saksi_item->created_at) ? date('d/m/Y H:i:s', strtotime($saksi_item->created_at)) : '' }}
+                                                                </td>
+                                                                <td>{{ $saksi_item->user->name ?? '' }}</td>
+                                                                <td>{{ $saksi_item->nama ?? '' }}</td>
+                                                                <td>{{ $saksi_item->nik ?? '' }}</td>
+                                                                <td>
+                                                                    <a target="_blank"
+                                                                        href="https://api.whatsapp.com/send?phone={{ $saksi_item->no_hp }}"><svg
+                                                                            xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                            height="24" viewBox="0 0 24 24"
+                                                                            style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.275 2.188 7.42 7.42 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 0 0-.429-.008.826.826 0 0 0-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263">
+                                                                            </path>
+                                                                        </svg></a>
+                                                                </td>
+                                                                <td>
+                                                                    @if ($saksi_item->status == 'active')
+                                                                        <span
+                                                                            class="badge badge-pill badge-success">Aktif</span>
+                                                                    @elseif ($saksi_item->status == 'passive')
+                                                                        <span
+                                                                            class="badge badge-pill badge-danger">Pasif</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>{{ $saksi_item->caleg->nama_caleg ?? '' }}</td>
+                                                                <td><a data-fancybox="gallery"
+                                                                        data-src="{{ request()->getSchemeAndHttpHost() . '/storage' . '/' . $saksi_item->foto }}"
+                                                                        class="blue accent-4">Lihat</a></td>
+                                                                <td class="text-center">
+                                                                    @can('saksi_show')
+                                                                        <a href="#mymodal"
+                                                                            data-remote="{{ route('saksi.show', $saksi_item->id) }}"
+                                                                            data-toggle="modal" data-target="#mymodal"
+                                                                            data-title="saksi Detail" class="badge badge-info"
+                                                                            data-tooltip="Tooltip on top" title="Lihat"><svg
+                                                                                xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                                height="20" viewBox="0 0 24 24"
+                                                                                style="fill: rgb(255, 255, 255);transform: ;msFilter:;">
+                                                                                <path
+                                                                                    d="M12 9a3.02 3.02 0 0 0-3 3c0 1.642 1.358 3 3 3 1.641 0 3-1.358 3-3 0-1.641-1.359-3-3-3z">
+                                                                                </path>
+                                                                                <path
+                                                                                    d="M12 5c-7.633 0-9.927 6.617-9.948 6.684L1.946 12l.105.316C2.073 12.383 4.367 19 12 19s9.927-6.617 9.948-6.684l.106-.316-.105-.316C21.927 11.617 19.633 5 12 5zm0 12c-5.351 0-7.424-3.846-7.926-5C4.578 10.842 6.652 7 12 7c5.351 0 7.424 3.846 7.926 5-.504 1.158-2.578 5-7.926 5z">
+                                                                                </path>
+                                                                            </svg></a>
+                                                                    @endcan
+                                                                    @can('saksi_edit')
+                                                                        <a href="{{ route('saksi.edit', $saksi_item->id) }}"
+                                                                            class="badge badge-warning"
+                                                                            data-tooltip="Tooltip on top" title="Edit"><svg
+                                                                                xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                                height="20" viewBox="0 0 24 24"
+                                                                                style="fill: rgb(255, 255, 255);transform: ;msFilter:;">
+                                                                                <path
+                                                                                    d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z">
+                                                                                </path>
+                                                                            </svg></a>
+                                                                    @endcan
+                                                                    @can('saksi_delete')
+                                                                        <a href="#" class="badge badge-danger"
+                                                                            data-tooltip="Tooltip on top" title="Hapus"
+                                                                            onclick="deletesaksi({{ $saksi_item->id }})"><svg
+                                                                                xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                                height="20" viewBox="0 0 24 24"
+                                                                                style="fill: rgb(255, 255, 255);transform: ;msFilter:;">
+                                                                                <path
+                                                                                    d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z">
+                                                                                </path>
+                                                                                <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
+                                                                            </svg></a>
+                                                                    @endcan
+                                                                </td>
+                                                            </tr>
+                                                        @empty
+                                                            {{-- not found --}}
+                                                        @endforelse
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            @endcan
+
+            @can('saksi_table')
+                <div class="content-body">
+                    <section id="table-home">
+                        <!-- Zero configuration table -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Saksi List</h4>
+                                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                                        <div class="heading-elements">
+                                            <ul class="list-inline mb-0">
+                                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                                <!-- <li><a data-action="close"><i class="ft-x"></i></a></li> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-content collapse show">
+                                        <div class="card-body card-dashboard">
+
+                                            <div class="table-responsive">
+                                                <table
+                                                    class="table table-striped table-bordered text-inputs-searching default-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Tanggal</th>
+                                                            <th>Entri</th>
+                                                            <th>Nama</th>
+                                                            <th>NIK</th>
+                                                            <th>Whatsapp</th>
+                                                            <th>Status</th>
+                                                            <th>Caleg Pilihan</th>
+                                                            <th>Foto</th>
+                                                            <th style="text-align:center; width:150px;">Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @forelse($saksiUser as $key => $saksi_item)
                                                             <tr data-entry-id="{{ $saksi_item->id }}">
                                                                 <td>{{ isset($saksi_item->created_at) ? date('d/m/Y H:i:s', strtotime($saksi_item->created_at)) : '' }}
                                                                 </td>

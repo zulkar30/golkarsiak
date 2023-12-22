@@ -34,7 +34,6 @@ class Paket extends Model
         return $this->hasMany('App\Models\PaketSaksi', 'paket_id');
     }
 
-
     public function user()
     {
         return $this->hasMany('App\Models\User', 'paket_id');

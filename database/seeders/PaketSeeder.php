@@ -25,7 +25,17 @@ class PaketSeeder extends Seeder
                 'nama_paket'      => 'Muhammad Andri,ST (Caleg DPRD Provinsi Riau Dapil Siak - Pelalawan)',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
-            ]
+            ],
+            [
+                'nama_paket'      => 'Sumaryo, BA (Caleg DPRD Provinsi Riau Dapil Siak - Pelalawan)',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama_paket'      => 'Ir. Miduk Gurning (Caleg DPRD Provinsi Riau Dapil Siak - Pelalawan)',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ];
 
         Paket::insert($paket);

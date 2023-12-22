@@ -65,6 +65,8 @@ class DashboardController extends Controller
                 })
                 ->count();
 
+        // dd($saksiCalegPaket);
+
         return view('pages.dashboard', compact('fullsaksi', 'kecamatan', 'desa', 'tps', 'saksiPerKecamatan', 'kabupatenStats', 'dapilData', 'dapilDataUserCam', 'dapilDataUserDes', 'saksiCaleg', 'saksiCalegCount', 'saksiPaket1', 'saksiPaket2', 'paket', 'saksiPaket', 'saksiPaketCount', 'caleg', 'saksiCalegPaket'));
     }
 

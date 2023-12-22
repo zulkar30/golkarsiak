@@ -85,6 +85,15 @@
                             </li>
                         @endcan
 
+                        @can('paket_access')
+                            <li
+                                class="{{ request()->is('paket') || request()->is('paket/*') || request()->is('*/paket') || request()->is('*/paket/*') ? 'active' : '' }} ">
+                                <a class="menu-item" href="{{ route('paket') }}">
+                                    <i></i><span>Paket</span>
+                                </a>
+                            </li>
+                        @endcan
+
                         @can('role_access')
                             <li
                                 class="{{ request()->is('role') || request()->is('role/*') || request()->is('*/role') || request()->is('*/role/*') ? 'active' : '' }} ">
@@ -109,9 +118,18 @@
 
             @can('operational_access')
                 <li class=" nav-item"><a href="#"><i
-                            class="{{ request()->is('saksi') || request()->is('saksi/*') || request()->is('*/saksi') || request()->is('*/saksi/*') ? 'bx bx-hive bx-flashing' : 'bx bx-hive' }}"></i><span
+                            class="{{ request()->is('kegiatan') || request()->is('kegiatan/*') || request()->is('*/kegiatan') || request()->is('*/kegiatan/*') || request()->is('saksi') || request()->is('saksi/*') || request()->is('*/saksi') || request()->is('*/saksi/*') ? 'bx bx-hive bx-flashing' : 'bx bx-hive' }}"></i><span
                             class="menu-title" data-i18n="Operational">Operasional</span></a>
                     <ul class="menu-content">
+
+                        @can('kegiatan_access')
+                            <li
+                                class="{{ request()->is('kegiatan') || request()->is('kegiatan/*') || request()->is('*/kegiatan') || request()->is('*/kegiatan/*') ? 'active' : '' }} ">
+                                <a class="menu-item" href="{{ route('kegiatan.index') }}">
+                                    <i></i><span>Kegiatan</span>
+                                </a>
+                            </li>
+                        @endcan
 
                         @can('saksi_access')
                             <li
