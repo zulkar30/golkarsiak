@@ -76,20 +76,15 @@ class UserController extends Controller
         // hash password
         $data['password'] = Hash::make($data['email']);
 
-        // upload process here
-        $path = public_path('app/public/assets/file-user');
-        if (!File::isDirectory($path)) {
-            $response = Storage::makeDirectory('public/assets/file-user');
-        }
+        if ($request->hasFile('foto')) {
+            $destinationPath = 'public/assets/file-user';
+            $file = $request->file('foto');
+            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $fullFileName = $fileName."-".time().'.'.$file->getClientOriginalExtension();
+            $path = $request->file('foto')->storeAs($destinationPath, $fullFileName);
 
-        // change file locations
-        if (isset($data['foto'])) {
-            $data['foto'] = $request->file('foto')->store(
-                'assets/file-user',
-                'public'
-            );
-        } else {
-            $data['foto'] = "";
+            $data['foto'] = $fullFileName;
         }
 
         // store to database
@@ -130,8 +125,10 @@ class UserController extends Controller
         $role = Role::all()->pluck('name', 'id');
         $user->load('role');
         $caleg = Caleg::orderBy('id', 'asc')->get();
+        $paket = Paket::orderBy('id', 'asc')->get();
+        $tps = Tps::orderBy('id', 'asc')->get();
 
-        return view('pages.user.edit', compact('user', 'role'));
+        return view('pages.user.edit', compact('user', 'role', 'caleg', 'paket', 'tps'));
     }
 
     /**
@@ -146,26 +143,17 @@ class UserController extends Controller
         // get all request from frontsite
         $data = $request->all();
 
-        // upload process here
-        // change format foto
-        if (isset($data['foto'])) {
+        $data['password'] = Hash::make($data['email']);
 
-            // first checking old foto to delete from storage
-            $get_item = $user['foto'];
+        if ($request->hasFile('foto')) {
+            $destinationPath = 'public/assets/file-user';
+            $file = $request->file('foto');
+            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $fullFileName = $fileName."-".time().'.'.$file->getClientOriginalExtension();
+            $path = $request->file('foto')->storeAs($destinationPath, $fullFileName);
 
-            // change file locations
-            $data['foto'] = $request->file('foto')->store(
-                'assets/file-user',
-                'public'
-            );
-
-            // delete old foto from storage
-            $data_old = 'storage/' . $get_item;
-            if (File::exists($data_old)) {
-                File::delete($data_old);
-            } else {
-                File::delete('storage/app/public/' . $get_item);
-            }
+            $data['foto'] = $fullFileName;
         }
 
         // update to database
@@ -208,6 +196,31 @@ class UserController extends Controller
     {
         $user = Auth::user();
         return view('profile.show', compact('user'));
+    }
+
+    public function editFoto($user)
+    {
+        $user = auth()->user();
+        return view('profile.edit_foto', compact('user'));
+    }
+
+    public function updateFoto(Request $request, User $user)
+    {
+        $data = $request->all();
+
+        if ($request->hasFile('foto')) {
+            $destinationPath = 'public/assets/file-user';
+            $file = $request->file('foto');
+            $file_name = $file->getClientOriginalName();
+            $path = $request->file('foto')->storeAs($destinationPath,$file_name);
+
+            $data['foto'] = $file_name;
+        }
+
+        // update to database
+        $user->update($data);
+        alert()->success('Berhasil', 'Berhasil Memperbarui Foto User');
+        return redirect()->route('dashboard');
     }
 
     public function changePassword()

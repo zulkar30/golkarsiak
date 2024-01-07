@@ -44,20 +44,26 @@ class DashboardController extends Controller
             $query->where('desa_id', $user->desa_id);
         }])->get();
         $saksi = Saksi::all();
-        $saksiCaleg = Saksi::where('caleg_id', $user->caleg_id)->get();
+        $saksiCaleg = Saksi::where('caleg_id', $user->caleg_id)->orderBy('created_at', 'desc')->get();
         $saksiCalegCount = Saksi::where('caleg_id', $user->caleg_id)->count();
-        $saksiPaket1 = Saksi::whereHas('paket', function ($query) {
+        $saksiPaket1 = Saksi::where('caleg_id', $user->caleg_id)->whereHas('paket', function ($query) {
             $query->where('paket.id', 1);
         })->count();
-        $saksiPaket2 = Saksi::whereHas('paket', function ($query) {
+        $saksiPaket2 = Saksi::where('caleg_id', $user->caleg_id)->whereHas('paket', function ($query) {
             $query->where('paket.id', 2);
+        })->count();
+        $saksiPaket3 = Saksi::where('caleg_id', $user->caleg_id)->whereHas('paket', function ($query) {
+            $query->where('paket.id', 3);
+        })->count();
+        $saksiPaket4 = Saksi::where('caleg_id', $user->caleg_id)->whereHas('paket', function ($query) {
+            $query->where('paket.id', 4);
         })->count();
         $paket = Paket::all();
         $caleg = Caleg::all();
         $userPaketId = Auth::user()->paket_id;
         $saksiPaket = Saksi::whereHas('paket', function ($query) use ($userPaketId) {
             $query->where('paket.id', $userPaketId);
-        })->get();
+        })->orderBy('created_at', 'desc')->get();
         $saksiPaketCount = $saksiPaket->count();
         $saksiCalegPaket = Saksi::where('caleg_id', Auth::user()->caleg_id)
                 ->whereHas('paket', function ($query) use ($userPaketId) {
@@ -67,7 +73,7 @@ class DashboardController extends Controller
 
         // dd($saksiCalegPaket);
 
-        return view('pages.dashboard', compact('fullsaksi', 'kecamatan', 'desa', 'tps', 'saksiPerKecamatan', 'kabupatenStats', 'dapilData', 'dapilDataUserCam', 'dapilDataUserDes', 'saksiCaleg', 'saksiCalegCount', 'saksiPaket1', 'saksiPaket2', 'paket', 'saksiPaket', 'saksiPaketCount', 'caleg', 'saksiCalegPaket'));
+        return view('pages.dashboard', compact('fullsaksi', 'kecamatan', 'desa', 'tps', 'saksiPerKecamatan', 'kabupatenStats', 'dapilData', 'dapilDataUserCam', 'dapilDataUserDes', 'saksiCaleg', 'saksiCalegCount', 'saksiPaket1', 'saksiPaket2', 'paket', 'saksiPaket', 'saksiPaketCount', 'caleg', 'saksiCalegPaket', 'saksiPaket3', 'saksiPaket4'));
     }
 
     public function show($desa_id)

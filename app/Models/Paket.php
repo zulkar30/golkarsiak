@@ -19,6 +19,7 @@ class Paket extends Model
     // Kolom tabel yang boleh diisi
     protected $fillable = [
         'nama_paket',
+        'foto',
         'created_at',
         'updated_at',
     ];

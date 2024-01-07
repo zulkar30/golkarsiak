@@ -43,12 +43,17 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     // User Page
     Route::resource('user', UserController::class);
     Route::get('/user/profile', [UserController::class, 'showUser'])->name('user.profile');
+    Route::get('profile/{user}/edit', [UserController::class, 'editFoto'])->name('edit.foto');
+    Route::put('profile/{user}', [UserController::class, 'updateFoto'])->name('update.foto');
+
 
     // Permission Page
     Route::get('permission', [PermissionController::class, 'index'])->name('permission');
 
     // Caleg Page
     Route::get('caleg', [CalegController::class, 'index'])->name('caleg');
+    Route::get('caleg/{caleg}/edit', [CalegController::class, 'edit'])->name('caleg.edit');
+    Route::put('caleg/{caleg}', [CalegController::class, 'update'])->name('caleg.update');
 
     // Dapil Page
     Route::get('dapil', [DapilController::class, 'index'])->name('dapil');
@@ -61,6 +66,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
 
     // Paket Page
     Route::get('paket', [PaketController::class, 'index'])->name('paket');
+    Route::get('paket/{paket}/edit', [PaketController::class, 'edit'])->name('paket.edit');
+    Route::put('paket/{paket}', [PaketController::class, 'update'])->name('paket.update');
 
     // Tps Page
     Route::get('tps', [TpsController::class, 'index'])->name('tps');

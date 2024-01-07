@@ -17,7 +17,7 @@
                                     <div class="text-center">
                                         <img src="{{ asset('assets/images/logo-golkar.svg') }}" class="img-fluid"
                                             alt="PPP Logo" width="95" height="95">
-                                        <h5 class="h5 text-gray-900 mb-4 mt-3">GOLKAR</h5>
+                                        <h5 class="h5 text-gray-900 mb-4 mt-3">GOLKAR KABUPATEN SIAK</h5>
                                     </div>
                                     <form class="user" method="post" action="{{ route('login') }}">
                                         @csrf

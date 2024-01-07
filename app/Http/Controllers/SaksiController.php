@@ -68,20 +68,17 @@ class SaksiController extends Controller
         $data = $request->all();
 
         $data['no_hp'] = '62' . preg_replace('/[^0-9]/', '', $data['no_hp']);
+        $data['umur'] = str_replace(' Tahun', '', $data['umur']);
 
-        // upload process here
-        $path = public_path('app/public/assets/file-saksi');
-        if(!File::isDirectory($path)){
-            $response = Storage::makeDirectory('public/assets/file-saksi');
-        }
+        if ($request->hasFile('foto')) {
+            $destinationPath = 'public/assets/file-saksi';
+            $file = $request->file('foto');
+            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $fullFileName = $fileName."-".time().'.'.$file->getClientOriginalExtension();
+            $path = $request->file('foto')->storeAs($destinationPath, $fullFileName);
 
-        // change file locations
-        if(isset($data['foto'])){
-            $data['foto'] = $request->file('foto')->store(
-                'assets/file-saksi', 'public'
-            );
-        }else{
-            $data['foto'] = "";
+            $data['foto'] = $fullFileName;
         }
 
         // dd($data);
@@ -125,7 +122,9 @@ class SaksiController extends Controller
         $desa = Desa::all();
         $tps = Tps::all();
         $caleg = Caleg::all();
-        return view('pages.saksi.edit', compact('saksi', 'kecamatan', 'desa', 'tps', 'caleg'));
+        $paketData = Paket::all();
+        $saksi->load('paket');
+        return view('pages.saksi.edit', compact('saksi', 'kecamatan', 'desa', 'tps', 'caleg', 'paketData'));
     }
 
     /**
@@ -140,29 +139,26 @@ class SaksiController extends Controller
         // Ambil semua data dari frontsite
         $data = $request->all();
 
+        $data['no_hp'] = '62' . preg_replace('/[^0-9]/', '', $data['no_hp']);
+        $data['umur'] = str_replace(' Tahun', '', $data['umur']);
+
         // upload process here
         // change format foto
-        if(isset($data['foto'])){
+        if ($request->hasFile('foto')) {
+            $destinationPath = 'public/assets/file-saksi';
+            $file = $request->file('foto');
+            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $fullFileName = $fileName."-".time().'.'.$file->getClientOriginalExtension();
+            $path = $request->file('foto')->storeAs($destinationPath, $fullFileName);
 
-             // first checking old foto to delete from storage
-            $get_item = $saksi['foto'];
-
-            // change file locations
-            $data['foto'] = $request->file('foto')->store(
-                'assets/file-saksi', 'public'
-            );
-
-            // delete old foto from storage
-            $data_old = 'storage/'.$get_item;
-            if (File::exists($data_old)) {
-                File::delete($data_old);
-            }else{
-                File::delete('storage/app/public/'.$get_item);
-            }
+            $data['foto'] = $fullFileName;
         }
 
         // Update data ke database
         $saksi->update($data);
+
+        $saksi->paket()->sync($request->input('paket', []));
 
         // Sweetalert
         alert()->success('Success Update Message', 'Successfully updated Saksi');

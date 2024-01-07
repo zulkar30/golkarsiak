@@ -44,9 +44,14 @@
                     <h3>Name: {{ $user->name }}</h3>
                     <h3>Kecamatan: {{ $user->kecamatan->nama_kecamatan }}</h3>
                     <h3>Desa: {{ $user->desa->nama_desa ?? 'Belum Memiliki Desa' }}</h3>
-                    <h3>TPS: {{ $user->tps->nama_tps ?? 'Belum Memiliki TPS'}}</h3>
+                    <h3>TPS: {{ $user->tps->nama_tps ?? 'Belum Memiliki TPS' }}</h3>
+                    <img src="{{ Auth::user()->foto ? url(Storage::url('assets/file-user/' . Auth::user()->foto)) : asset('/assets/app-assets/images/portrait/small/avatar-s-19.png') }}"
+                    class="img-thumbnail img-fluid h-50 w-50">
+                    <div class="row container my-2">
+                        <a href="{{ route('edit.foto', ['user' => $user->id]) }}"><button class="btn btn-info">Edit Foto</button></a>
+                    </div>
                 </div>
-            </div>
+                </div>
 
         </div>
     </div>

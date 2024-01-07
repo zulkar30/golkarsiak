@@ -719,7 +719,7 @@
                                                     <tbody>
                                                         @forelse($user as $key => $user_item)
                                                             <tr data-entry-id="{{ $user_item->id }}">
-                                                                <td>{{ date('d/m/Y H:i:s', strtotime($user_item->created_at)) ?? '' }}
+                                                                <td>{{ date('d/m/Y', strtotime($user_item->created_at)) ?? '' }}
                                                                 </td>
                                                                 <td>{{ $user_item->name ?? '' }}</td>
                                                                 <td>{{ $user_item->email ?? '' }}</td>
@@ -730,7 +730,7 @@
                                                                     @endforeach
                                                                 </td>
                                                                 <td><a data-fancybox="gallery"
-                                                                        data-src="{{ request()->getSchemeAndHttpHost() . '/storage' . '/' . $user_item->foto }}"
+                                                                        data-src="{{ request()->getSchemeAndHttpHost() . '/storage/assets/file-user' . '/' . $user_item->foto }}"
                                                                         class="blue accent-4">Lihat</a></td>
                                                                 <td class="text-center">
                                                                     @can('user_show')
@@ -781,6 +781,16 @@
                                                             {{-- not found --}}
                                                         @endforelse
                                                     </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>Tanggal</th>
+                                                            <th>Nama</th>
+                                                            <th>Email</th>
+                                                            <th>Peran</th>
+                                                            <th>Foto</th>
+                                                            <th style="text-align:center; width:150px;">Aksi</th>
+                                                        </tr>
+                                                    </tfoot>
                                                 </table>
                                             </div>
 
@@ -1081,17 +1091,20 @@
             });
         });
 
-        $('#calegInput, #tpsInput, #paketInput').hide();
+        $('#calegInput, #tpsInput, #paketInput, #kecamatanInput, #desaInput').hide();
         $('#role').on('change', function() {
             var selectedRoles = $(this).val();
             $('#calegInput, #tpsInput').hide();
-            if (selectedRoles && (selectedRoles.includes('2') || selectedRoles.includes('5'))) {
-                $('#calegInput').show();
+            if (selectedRoles && selectedRoles.includes('2')) {
+                $('#calegInput, #kecamatanInput').show();
+            } else if (selectedRoles && selectedRoles.includes('3')) {
+                $('#calegInput, #kecamatanInput, #desaInput').show();
             } else if (selectedRoles && selectedRoles.includes('4')) {
-                $('#tpsInput').show();
+                $('#calegInput, #kecamatanInput, #desaInput, #tpsInput').show();
+            } else if (selectedRoles && selectedRoles.includes('5')) {
+                $('#calegInput').show();
             } else if (selectedRoles && selectedRoles.includes('6')) {
                 $('#paketInput').show();
-                $('#kecamatanInput, #desaInput').hide();
             }
         });
 

@@ -20,6 +20,7 @@ class Caleg extends Model
     protected $fillable = [
         'dapil_id',
         'nama_caleg',
+        'foto',
         'created_at',
         'updated_at',
     ];

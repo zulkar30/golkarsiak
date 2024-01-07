@@ -29,7 +29,7 @@
     </tr>
     <tr>
         <th>Umur</th>
-        <td>{{ isset($saksi->umur) ? $saksi->umur : 'N/A' }}</td>
+        <td>{{ isset($saksi->umur) ? $saksi->umur . ' Tahun' : 'N/A' }}</td>
     </tr>
     <tr>
         <th>Kecamatan</th>
